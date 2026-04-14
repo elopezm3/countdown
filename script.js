@@ -26,25 +26,6 @@ function updateCountdown() {
   document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 }
 
-// Stars background
-function createStars() {
-  const container = document.getElementById('stars');
-  const count = 80;
-
-  for (let i = 0; i < count; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
-    const size = Math.random() * 3 + 1;
-    star.style.width = size + 'px';
-    star.style.height = size + 'px';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-    star.style.setProperty('--max-opacity', (Math.random() * 0.6 + 0.3).toString());
-    star.style.animationDelay = Math.random() * 5 + 's';
-    container.appendChild(star);
-  }
-}
 
 // Lightbox for gallery photos
 function setupLightbox() {
@@ -66,7 +47,6 @@ function setupLightbox() {
 }
 
 // Init
-createStars();
 updateCountdown();
 setInterval(updateCountdown, 1000);
 setupLightbox();
