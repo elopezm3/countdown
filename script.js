@@ -11,7 +11,7 @@ function updateCountdown() {
     document.getElementById('hours').textContent = '0';
     document.getElementById('minutes').textContent = '0';
     document.getElementById('seconds').textContent = '0';
-    document.querySelector('.hero h1').textContent = 'Mi alma encontro su complemento perfecto';
+    document.querySelector('.hero h1').textContent = 'Mi alma ya esta al lado de su complemento perfecto';
     return;
   }
 
