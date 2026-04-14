@@ -1,6 +1,6 @@
-// Target date: April 28, 2026 00:00:00 Eastern Time (Miami)
+// Target date: April 28, 2026 20:00:00 Eastern Time (Miami)
 // Eastern Daylight Time (EDT) is UTC-4 in late April
-const TARGET_DATE = new Date('2026-04-28T00:00:00-04:00');
+const TARGET_DATE = new Date('2026-04-28T20:00:00-04:00');
 
 function updateCountdown() {
   const now = new Date();
