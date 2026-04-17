@@ -46,7 +46,20 @@ function setupLightbox() {
   });
 }
 
+// Anniversary banner: show only during April 20, 2026 in Eastern Time (EDT = UTC-4)
+const BANNER_START = new Date('2026-04-20T00:00:00-04:00');
+const BANNER_END = new Date('2026-04-21T00:00:00-04:00');
+
+function updateAnniversaryBanner() {
+  const banner = document.getElementById('anniversary-banner');
+  if (!banner) return;
+  const now = new Date();
+  banner.hidden = !(now >= BANNER_START && now < BANNER_END);
+}
+
 // Init
 updateCountdown();
 setInterval(updateCountdown, 1000);
+updateAnniversaryBanner();
+setInterval(updateAnniversaryBanner, 60 * 1000);
 setupLightbox();
