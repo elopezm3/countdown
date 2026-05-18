@@ -38,10 +38,73 @@ function setupLightbox() {
     lightbox.classList.remove('active');
   });
 
-  document.querySelectorAll('.gallery-grid img').forEach(img => {
+  document.querySelectorAll('.gallery-grid img, .carousel-track img').forEach(img => {
     img.addEventListener('click', () => {
       lightbox.querySelector('img').src = img.src;
       lightbox.classList.add('active');
+    });
+  });
+}
+
+// Sliding photo carousels for memory sections
+function setupCarousels() {
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    let index = 0;
+
+    if (slides.length <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (dotsContainer) dotsContainer.style.display = 'none';
+      return;
+    }
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Ir a la foto ${i + 1}`);
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dotsContainer.querySelectorAll('button').forEach((d, di) => {
+        d.classList.toggle('active', di === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+
+    let auto = setInterval(() => goTo(index + 1), 6000);
+    const pause = () => clearInterval(auto);
+    const resume = () => { auto = setInterval(() => goTo(index + 1), 6000); };
+    carousel.addEventListener('mouseenter', pause);
+    carousel.addEventListener('mouseleave', resume);
+
+    // Touch swipe support
+    let startX = 0;
+    let deltaX = 0;
+    track.addEventListener('touchstart', (e) => {
+      pause();
+      startX = e.touches[0].clientX;
+      deltaX = 0;
+    }, { passive: true });
+    track.addEventListener('touchmove', (e) => {
+      deltaX = e.touches[0].clientX - startX;
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      if (Math.abs(deltaX) > 40) {
+        goTo(index + (deltaX < 0 ? 1 : -1));
+      }
+      resume();
     });
   });
 }
@@ -62,4 +125,5 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 updateAnniversaryBanner();
 setInterval(updateAnniversaryBanner, 60 * 1000);
+setupCarousels();
 setupLightbox();
