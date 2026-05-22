@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown - Nos vemos pronto, mi amor</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -48,14 +48,19 @@
       <article class="memory">
         <div class="carousel" data-carousel>
           <div class="carousel-track">
-            <img src="images/10-01-2026-santafe.jpeg" alt="Recuerdo lindo">
-            <img src="images/10-01-2026-santafe_chat.jpeg" alt="Recuerdo lindo">
+            <img src="images/10-01-2026-santafe.jpeg" alt="Recuerdo lindo" data-chapter="1">
+            <img src="images/10-01-2026-santafe_chat.jpeg" alt="Recuerdo lindo" data-chapter="1">
+            <img src="images/bogota_monet.jpeg" alt="Recuerdo lindo" data-chapter="2">
+            <img src="images/bogota_monet2.jpeg" alt="Recuerdo lindo" data-chapter="2">
           </div>
           <button class="carousel-btn prev" type="button" aria-label="Anterior">&#8249;</button>
           <button class="carousel-btn next" type="button" aria-label="Siguiente">&#8250;</button>
           <div class="carousel-dots" aria-hidden="true"></div>
         </div>
-        <p class="memory-text">Este día sentí por primera vez que pasamos un día como si ya fuéramos pareja jaja me hizo muy feliz, compramos cositas juntos, me ayudaste a escoger las gafas y la pantaloneta, andamos todo el día juntos desde temprano, comimos papas con chicharrón y volvimos a nuestro lugar después de mucho tiempo a darnos mucho amor. Me sentí tan feliz de lo que era un día a tu lado y supe que quería que mis días siempre fueran así.</p>
+        <div class="memory-texts">
+          <p class="memory-text" data-chapter="1">Este día sentí por primera vez que pasamos un día como si ya fuéramos pareja jaja me hizo muy feliz, compramos cositas juntos, me ayudaste a escoger las gafas y la pantaloneta, andamos todo el día juntos desde temprano, comimos papas con chicharrón y volvimos a nuestro lugar después de mucho tiempo a darnos mucho amor. Me sentí tan feliz de lo que era un día a tu lado y supe que quería que mis días siempre fueran así.</p>
+          <p class="memory-text" data-chapter="2" hidden>Este día fue hermoso, a pesar que nos estafó el taxista jajaja fue lo de menos para el día tan hermoso que fue, conociste a mi familia, recuerdo mucho viendo el libro de arte y tú enseñándome y hablándome de Monet y el impresionismo lo cual amé, nosotros acostados amándonos jugando nuestros NYT games haciendo el midi y los wordle, y luego jugando adivina quien. Amo todos los momentos contigo Juanita y no veo la hora de volver a Bogotá a seguir enamorándonos juntos de esta ciudad o cualquier lugar en el que estemos juntos.</p>
+        </div>
       </article>
     </section>
 
@@ -83,6 +88,6 @@
     </section>
   </main>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

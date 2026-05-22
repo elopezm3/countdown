@@ -54,6 +54,7 @@ function setupCarousels() {
     const prevBtn = carousel.querySelector('.carousel-btn.prev');
     const nextBtn = carousel.querySelector('.carousel-btn.next');
     const dotsContainer = carousel.querySelector('.carousel-dots');
+    const memoryTexts = carousel.parentElement.querySelectorAll('.memory-text[data-chapter]');
     let index = 0;
 
     if (slides.length <= 1) {
@@ -78,6 +79,12 @@ function setupCarousels() {
       dotsContainer.querySelectorAll('button').forEach((d, di) => {
         d.classList.toggle('active', di === index);
       });
+      if (memoryTexts.length) {
+        const chapter = slides[index].dataset.chapter;
+        memoryTexts.forEach(t => {
+          t.hidden = t.dataset.chapter !== chapter;
+        });
+      }
     }
 
     prevBtn.addEventListener('click', () => goTo(index - 1));
