@@ -1,6 +1,5 @@
-// Target date: June 24, 2026 20:00:00 Eastern Time (Miami)
-// Eastern Daylight Time (EDT) is UTC-4 in June
-const TARGET_DATE = new Date('2026-06-24T20:00:00-04:00');
+// Target date: June 23, 2026 23:55:00 Colombian Time (UTC-5)
+const TARGET_DATE = new Date('2026-06-23T23:55:00-05:00');
 
 function updateCountdown() {
   const now = new Date();
