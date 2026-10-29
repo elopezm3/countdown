@@ -1,31 +1,3 @@
-// Target date: June 23, 2026 23:55:00 Colombian Time (UTC-5)
-const TARGET_DATE = new Date('2026-06-23T23:55:00-05:00');
-
-function updateCountdown() {
-  const now = new Date();
-  const diff = TARGET_DATE - now;
-
-  if (diff <= 0) {
-    document.getElementById('days').textContent = '0';
-    document.getElementById('hours').textContent = '0';
-    document.getElementById('minutes').textContent = '0';
-    document.getElementById('seconds').textContent = '0';
-    document.querySelector('.hero h1').textContent = 'Mi alma ya esta al lado de su complemento perfecto';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  document.getElementById('days').textContent = days;
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-}
-
-
 // Lightbox for gallery photos
 function setupLightbox() {
   const lightbox = document.createElement('div');
@@ -127,8 +99,6 @@ function updateAnniversaryBanner() {
 }
 
 // Init
-updateCountdown();
-setInterval(updateCountdown, 1000);
 updateAnniversaryBanner();
 setInterval(updateAnniversaryBanner, 60 * 1000);
 setupCarousels();
